@@ -1,18 +1,26 @@
-/*
-Declare variables of type int, float, double and char. Assign some example values to them.
-Display the values
-Declare pointers for int, float, double and char. Set the pointers to the created variables.
-Display the values using pointers
-Change the values using pointers. Display the values using pointers. Then display the same
-values using the variables
-Then display the values of raw pointers
-*/
+
 
 #include <iostream>
 using namespace std;
 
+void task1();
+/*
+Declare an array of 5 int elements. Using pointers iterate over the array to display the
+elements
+*/
 int main()
 {
+    int myArray[] = { 6, 9, 10, 1, 21 };
+
+    int* pointer = myArray;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(pointer++) << endl;
+    }
+}
+
+void task1() {
     int a = 100;
     float b = 90.5;
     double c = 100.2;
@@ -26,6 +34,7 @@ int main()
     char* pd = &d;
 
     cout << *pa << " " << *pb << " " << *pc << " " << *pd << endl;
+    cout << pa << " " << pb << " " << pc << " " << pd << endl;
 
     *pa = 200;
     *pb = 0.4;
