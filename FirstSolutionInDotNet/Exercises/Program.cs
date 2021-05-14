@@ -109,7 +109,7 @@ namespace Exercises
             Console.WriteLine($"The sum is {sum} and the average is {average}");
             
             
-            //Task 6, 7, 9
+            //Task 6, 7, 9, 11, 12
             //Homework
         }
     }
