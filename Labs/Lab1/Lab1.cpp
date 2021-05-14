@@ -4,20 +4,24 @@
 using namespace std;
 
 void task1();
-/*
-Declare an array of 5 int elements. Using pointers iterate over the array to display the
-elements
-*/
+void task2();
+void task3();
+void task5();
+
 int main()
 {
-    int myArray[] = { 6, 9, 10, 1, 21 };
+    int const size = 5;
+    int myArray[size] = { 1, 2, 3, 4, 5 };
 
-    int* pointer = myArray;
+    int* p1 = myArray;
+    int* p2 = p1 + size - 1;
 
-    for (int i = 0; i < 5; i++)
-    {
-        cout << *(pointer++) << endl;
+    for (int i = 0; i < size/2; i++) {
+        swap(*p1, *p2);
+        p1++;
+        p2--;
     }
+    for (int a : myArray)cout << a << "  ";
 }
 
 void task1() {
@@ -37,7 +41,7 @@ void task1() {
     cout << pa << " " << pb << " " << pc << " " << pd << endl;
 
     *pa = 200;
-    *pb = 0.4;
+    *pb = 0.4f;
     *pc = 0.01;
     *pd = 'x';
 
@@ -45,4 +49,37 @@ void task1() {
     cout << a << " " << b << " " << c << " " << d << endl;
 
     cout << pa << " " << pb << " " << pc << " " << pd << endl;
+}
+void task2() {
+    int myArray[] = { 6, 9, 10, 1, 21 };
+
+    int* pointer = myArray;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *(pointer++) << endl;
+    }
+}
+void task3() {
+    int myArray[5];
+    int* pointer = myArray;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> *pointer++;
+    }
+}
+
+void task5() {
+    int* x = new int;
+
+    //cout << *x << endl;
+    *x = 6;
+    cout << *x << endl;
+
+    delete x;
+    //cout << *x << endl;
+
+    x = NULL;
+    //cout << *x << endl;
 }
