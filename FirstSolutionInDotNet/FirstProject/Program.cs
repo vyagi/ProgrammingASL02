@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using FirstClassLibrary;
 
 namespace FirstProject
 {
@@ -8,7 +6,17 @@ namespace FirstProject
     {
         static void Main(string[] args) //entry point
         {
-           
+            DateTime today = DateTime.Today;
+            DateTime birthDay = new DateTime(1978, 11, 10);
+
+            TimeSpan period = today - birthDay;
+
+            Console.WriteLine(period.TotalDays);
+
+            TimeSpan tenThousandDays = new TimeSpan(10000, 0, 0, 0);
+
+            DateTime celebrationDay = birthDay + tenThousandDays;
+            Console.WriteLine(celebrationDay);
         }
 
         static int Dummy()
