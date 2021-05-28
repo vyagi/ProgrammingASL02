@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercises", "Exercises\Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedProgrammingBasics", "ObjectOrientedProgrammingBasics\ObjectOrientedProgrammingBasics.csproj", "{3C956A66-7AED-4FAB-ABB4-B5C987E4245A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedExercise", "ObjectOrientedExercise\ObjectOrientedExercise.csproj", "{32784F29-F7BB-4A37-BF89-2DC4143DBAA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3C956A66-7AED-4FAB-ABB4-B5C987E4245A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C956A66-7AED-4FAB-ABB4-B5C987E4245A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C956A66-7AED-4FAB-ABB4-B5C987E4245A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32784F29-F7BB-4A37-BF89-2DC4143DBAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32784F29-F7BB-4A37-BF89-2DC4143DBAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32784F29-F7BB-4A37-BF89-2DC4143DBAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32784F29-F7BB-4A37-BF89-2DC4143DBAA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
