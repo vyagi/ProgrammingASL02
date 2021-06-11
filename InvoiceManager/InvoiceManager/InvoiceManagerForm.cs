@@ -22,9 +22,7 @@ namespace InvoiceManager
                 return;
             }
 
-            var content = File.ReadAllText(path);
-
-            resultTextBox.Text = content;
+            resultTextBox.Text = File.ReadAllText(path);
         }
 
         private void byNameButton_Click(object sender, EventArgs e)
@@ -39,32 +37,34 @@ namespace InvoiceManager
 
             var lines = File.ReadAllLines(path);
 
-            var amounts = new Dictionary<string, decimal>();
+            var amounts = GroupByNames(lines);
 
-            for (int i = 1; i < lines.Length; i++)
-            {
-                var line = lines[i];
-                var split = line.Split('\t');
+            DisplayGroupedByNames(amounts);
+        }
 
-                var name = split[0];
-                var amount = decimal.Parse(split[1]);
-
-                if (!amounts.ContainsKey(name))
-                {
-                    amounts[name] = amount;
-                }
-                else
-                {
-                    amounts[name] += amount;
-                }
-            }
-
-            resultTextBox.Text = "Name\tAmount" + Environment.NewLine;
+        private void DisplayGroupedByNames(Dictionary<string, decimal> amounts)
+        {
+            resultTextBox.Text = $"Name\tAmount{Environment.NewLine}";
 
             foreach (var name in amounts.Keys)
+                resultTextBox.Text += $"{name}{'\t'}{amounts[name]}{Environment.NewLine}";
+        }
+
+        private Dictionary<string, decimal> GroupByNames(string[] lines)
+        {
+            var amounts = new Dictionary<string, decimal>();
+
+            for (var i = 1; i < lines.Length; i++)
             {
-                resultTextBox.Text += (name + '\t' + amounts[name] + Environment.NewLine);
+                var invoice = new Invoice(lines[i].Split('\t'));
+
+                if (amounts.ContainsKey(invoice.Name))
+                    amounts[invoice.Name] += invoice.Amount;
+                else
+                    amounts[invoice.Name] = invoice.Amount;
             }
+
+            return amounts;
         }
     }
 }
