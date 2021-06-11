@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InvoiceManager
 {
-    public partial class Form1 : Form
+    public partial class InvoiceManagerForm : Form
     {
-        public Form1()
+        public InvoiceManagerForm()
         {
             InitializeComponent();
         }
