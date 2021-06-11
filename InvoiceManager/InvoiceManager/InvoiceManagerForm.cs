@@ -44,11 +44,14 @@ namespace InvoiceManager
 
         private void DisplayGroupedByNames(Dictionary<string, decimal> amounts)
         {
-            resultTextBox.Text = $"Name\tAmount{Environment.NewLine}";
+            resultTextBox.Text = FormatLine("Name", "Amount");
 
             foreach (var name in amounts.Keys)
-                resultTextBox.Text += $"{name}{'\t'}{amounts[name]}{Environment.NewLine}";
+                resultTextBox.Text += FormatLine(name, amounts[name].ToString());
         }
+
+        private string FormatLine(string name, string amount) => 
+            $"{name}\t{amount}{Environment.NewLine}";
 
         private Dictionary<string, decimal> GroupByNames(string[] lines)
         {
@@ -57,11 +60,10 @@ namespace InvoiceManager
             for (var i = 1; i < lines.Length; i++)
             {
                 var invoice = new Invoice(lines[i].Split('\t'));
-
-                if (amounts.ContainsKey(invoice.Name))
-                    amounts[invoice.Name] += invoice.Amount;
-                else
-                    amounts[invoice.Name] = invoice.Amount;
+                
+                amounts[invoice.Name] = amounts.ContainsKey(invoice.Name)
+                    ? amounts[invoice.Name] + invoice.Amount
+                    : invoice.Amount;
             }
 
             return amounts;
