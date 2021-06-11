@@ -43,6 +43,7 @@ namespace InvoiceManager
             this.readFileButton.TabIndex = 0;
             this.readFileButton.Text = "Read";
             this.readFileButton.UseVisualStyleBackColor = true;
+            this.readFileButton.Click += new System.EventHandler(this.readFileButton_Click);
             // 
             // pathLabel
             // 
@@ -59,6 +60,7 @@ namespace InvoiceManager
             this.pathTextBox.Name = "pathTextBox";
             this.pathTextBox.Size = new System.Drawing.Size(725, 20);
             this.pathTextBox.TabIndex = 3;
+            this.pathTextBox.Text = "C:\\Users\\Marcin\\Desktop\\Invoices.txt";
             // 
             // resultTextBox
             // 
