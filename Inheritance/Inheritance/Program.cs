@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Net.Http.Headers;
 
 namespace Inheritance
 {
-    class Shape
+    abstract class Shape
     {
-        public virtual double Area() => 0;
+        public abstract double Area();
 
-        public virtual double Perimeter() => 0;
+        public abstract double Perimeter();
     }
 
     class Rectangle : Shape
@@ -46,16 +45,34 @@ namespace Inheritance
 
         public override double Perimeter() => _a + _b + _c;
     }
-    
+
+    public abstract class Animal
+    {
+        public virtual void MakeSound()
+        {
+            Console.WriteLine("Unspecified Sound");
+        }
+    }
+
+    public class Cat : Animal
+    {
+        public override void MakeSound()
+        {
+            Console.WriteLine("Meaow");
+        }
+    }
+
+    public class Dog : Animal { }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Shape shape = new Shape();
-            var area = shape.Area();
-            var perimeter = shape.Perimeter();
+            // Shape shape = new Shape();
+            // var area = shape.Area();
+            // var perimeter = shape.Perimeter();
 
-            Console.WriteLine($"{area} and {perimeter}");
+            // Console.WriteLine($"{area} and {perimeter}");
 
             Rectangle rectangle = new Rectangle(10, 5);
             var areaOfRectangle = rectangle.Area();
@@ -79,7 +96,11 @@ namespace Inheritance
                 Console.WriteLine($"{sh.Area()} and {sh.Perimeter()}");
             }
 
-            Console.WriteLine("Hello World!");
+            Animal c = new Cat();
+            c.MakeSound();
+
+            Animal d = new Dog();
+            d.MakeSound();
         }
     }
 }
